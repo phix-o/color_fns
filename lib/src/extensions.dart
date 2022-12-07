@@ -1,0 +1,10 @@
+import 'dart:ui';
+
+import 'colors.dart';
+import 'shades.dart' as shades;
+
+extension Shades on Color {
+  Color lighten(double amount) => shades.lighten(this, amount);
+  Color darken(double amount) => shades.darken(this, amount);
+  HSLColor toHSL() => shades.rgbToHSL(this);
+}
