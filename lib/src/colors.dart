@@ -5,10 +5,16 @@ import 'package:equatable/equatable.dart';
 class HSLColor extends Equatable {
   const HSLColor(this.hue, this.sat, this.lum);
 
+  /// The hue value of the color in degrees.
   final double hue;
+
+  /// The saturation value of the color
   final double sat;
+
+  /// The luminance value of the color
   final double lum;
 
+  /// Converts a [HSLColor] to [Color] with [opacity].
   Color toRGBA(double opacity) {
     final c = (1 - (2 * lum - 1).abs()) * sat;
     final x = c * (1 - ((hue / 60) % 2 - 1).abs());
@@ -36,10 +42,12 @@ class HSLColor extends Equatable {
     return Color.fromRGBO(red, green, blue, opacity);
   }
 
+  /// Converts a [HSLColor] to [Color] with opacity set to 1.
   Color toRGB() {
     return toRGBA(1);
   }
 
+  /// Gets a new copy of [HSLColor] with new fields.
   HSLColor copyWith({double? hue, double? sat, double? lum}) =>
       HSLColor(hue ?? this.hue, sat ?? this.sat, lum ?? this.lum);
 

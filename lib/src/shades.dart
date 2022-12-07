@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'colors.dart';
 
+/// Converts [Color] to [HSLColor].
 HSLColor rgbToHSL(Color color) {
   final r = color.red / 255;
   final g = color.green / 255;
@@ -33,6 +34,9 @@ HSLColor rgbToHSL(Color color) {
   return HSLColor(h, s, l);
 }
 
+/// Lightens the shade of [Color] by an [amount].
+///
+/// Valid values of [amount] is 0 - 1. Values are capped at 1.
 Color lighten(Color color, double amount) {
   final hslColor = rgbToHSL(color);
 
@@ -42,6 +46,9 @@ Color lighten(Color color, double amount) {
   return brightenedHslColor.toRGB();
 }
 
+/// Darkens the shade of [Color] by an [amount].
+///
+/// Valid values of [amount] is 0 - 1. Values are capped at 1.
 Color darken(Color color, double amount) {
   final hslColor = rgbToHSL(color);
 
