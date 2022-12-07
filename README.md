@@ -11,29 +11,50 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A collection of utilities used to manipulate dart colors.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- Lighten color
+- Darken color
+- Color space conversion from RGB to HSV
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add the package in your `pubspec.yaml` file.
+```yaml
+dependencies:
+  color_fns:
+    git:
+      url: https://github.com/PhelixOchieng/color_fns.git
+      ref: main
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
 
 ```dart
-const like = 'sample';
+import 'dart:ui';
+
+import 'package:color_fns/color_fns.dart';
+
+const color = Color(0x009E19DB);
+
+final lighter = lighten(color, 0.1);
+final darker = darken(color, 0.1)
+
+// Or using the extensions
+final lighterExt = color.lighten(0.1);
+final darkerExt = color.darken(0.1);
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+### Contributing
+
+To contribute to the package:
+
+1. Fork the repo.
+1. Branch from the `main` branch and create your feature branch.
+1. Make your changes in your branch and commit them.
+1. Create a pull request pointing to the `main` branch.
