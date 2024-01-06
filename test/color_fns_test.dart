@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:color_fns/src/utils.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:color_fns/color_fns.dart';
@@ -27,5 +28,33 @@ void main() {
 
     expect(color.toHSL(), expectedColor);
     expect(rgbToHSL(color), expectedColor);
+  });
+
+  test('creates a Color from 3-char hex string', () {
+    const hex = "#FF0";
+    const expectedColor = Color(0xFFFFFF00);
+
+    expect(colorFromHex(hex), expectedColor);
+  });
+
+  test('creates a Color from 6-char hex string', () {
+    const hex = "#FF0000";
+    const expectedColor = Color(0xFFFF0000);
+
+    expect(colorFromHex(hex), expectedColor);
+  });
+
+  test('creates a Color from 8-char hex string', () {
+    const hex = "#FF0000A0";
+    const expectedColor = Color(0xA0FF0000);
+
+    expect(colorFromHex(hex), expectedColor);
+  });
+
+  test('converts Color to hex', () {
+    const color = Color(0xFFFF0000);
+    const expectedHex = '#FF0000FF';
+
+    expect(colorToHex(color), expectedHex);
   });
 }
