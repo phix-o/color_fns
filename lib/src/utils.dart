@@ -37,11 +37,13 @@ Color colorFromHex(String hex) {
   return Color.fromARGB(alpha, r, g, b);
 }
 
+/// Converts [Color] to a hex string represantation
 String colorToHex(Color color) {
   String r = color.red.toRadixString(16);
   String g = color.green.toRadixString(16);
-  String b = color.green.toRadixString(16);
+  String b = color.blue.toRadixString(16);
   String o = color.alpha.toRadixString(16);
+
 
   if (r.length == 1) r = "${r}0";
   if (g.length == 1) g = "${g}0";

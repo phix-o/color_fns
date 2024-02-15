@@ -51,9 +51,16 @@ void main() {
     expect(colorFromHex(hex), expectedColor);
   });
 
-  test('converts Color to hex', () {
+  test('converts Color to hex 1', () {
     const color = Color(0xFFFF0000);
     const expectedHex = '#FF0000FF';
+
+    expect(colorToHex(color), expectedHex);
+  });
+
+  test('converts Color to hex 2', () {
+    const color = Color(0xFFFFD49D);
+    const expectedHex = '#FFD49DFF';
 
     expect(colorToHex(color), expectedHex);
   });
